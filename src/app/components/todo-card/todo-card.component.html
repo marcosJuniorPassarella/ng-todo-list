@@ -1,1 +1,71 @@
-<p>todo-card works!</p>
+<mat-tab-group color="accent">
+  <mat-tab label="Em andamento">
+    <mat-card class="todo_card" *ngFor="let todo of todosList()">
+      <div *ngIf="todo && todo?.done === false">
+        <mat-card-header>
+          <mat-card-title class="todo_card_title">
+            {{ todo?.title }}
+          </mat-card-title>
+          <mat-card-subtitle class="todo_card_subtitle">
+            {{ todo?.description }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button
+            class="header_btn check_btn"
+            mat-icon-button
+            aria-label="Concluir tarefa"
+            (click)="handleDoneTodo(todo.id)"
+          >
+            <mat-icon>done_all</mat-icon>
+          </button>
+          <button
+            class="header_btn check_btn"
+            mat-icon-button
+            aria-label="Concluir tarefa"
+            (click)="handleDeleteTodo(todo.id)"
+          >
+            <mat-icon>delete_forevere</mat-icon>
+          </button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Concluídas">
+    <mat-card class="todo_card" *ngFor="let todo of todosList()">
+      <div *ngIf="todo && todo?.done === true">
+        <mat-card-header>
+          <mat-card-title class="todo_card_title">
+            {{ todo?.title }}
+          </mat-card-title>
+          <mat-card-subtitle class="todo_card_subtitle">
+            {{ todo?.description }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button
+            class="header_btn check_btn"
+            mat-icon-button
+            aria-label="Concluir tarefa"
+            (click)="handleDoneTodo(todo.id)"
+          >
+            <mat-icon>done_all</mat-icon>
+          </button>
+          <button
+            class="header_btn check_btn"
+            mat-icon-button
+            aria-label="Concluir tarefa"
+            (click)="handleDeleteTodo(todo.id)"
+          >
+            <mat-icon>delete_forevere</mat-icon>
+          </button>
+        </mat-card-actions>
+      </div>
+    </mat-card></mat-tab
+  >
+</mat-tab-group>
+
+<ng-template #withoutTodos>
+  <h3>Não há tarefas a serem exibidas!</h3>
+</ng-template>
