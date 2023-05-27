@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-
+* {
+  mat-card-title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  }
+  mat-card-subtitle {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  }
+  mat-tab-group {
+    margin: 2rem;
+  }
+}
 html,
 body {
   height: 100%;
@@ -71,4 +81,26 @@ body {
 
 .todo_form_input {
   width: 90% !important;
+}
+
+.todo_card {
+  width: 80%;
+  margin: 1rem auto;
+  background-color: #19976a !important;
+  border-radius: 1.8rem !important;
+}
+
+.todo_card_title {
+  font-size: 25px !important;
+  color: white !important;
+}
+
+.todo_card_subtitle {
+  margin-top: 2rem !important;
+  font-size: 18px !important;
+}
+
+.check_btn {
+  width: 50px !important;
+  margin-bottom: 1rem !important;
 }
