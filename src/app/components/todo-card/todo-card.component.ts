@@ -43,9 +43,13 @@ export class TodoCardComponent {
     }
   }
 
-  public handleDeleteTodo(todoId: number): void {
+  public handleDeleteTodo(todoId: Todo): void {
     if (todoId) {
-      console.log('todoId');
+      const index = this.todosList().indexOf(todoId);
+      index !== -1 &&
+        this.todosSignal.mutate((todos) => {
+          todos.splice(index, 1);
+        });
     }
   }
 }

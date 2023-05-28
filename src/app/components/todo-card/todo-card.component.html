@@ -26,7 +26,7 @@
             class="header_btn check_btn todo_form_delete_btn"
             mat-icon-button
             aria-label="Concluir tarefa"
-            (click)="handleDeleteTodo(todo.id)"
+            (click)="handleDeleteTodo(todo)"
           >
             <mat-icon>delete_forevere</mat-icon>
           </button>
@@ -59,10 +59,10 @@
             <mat-icon>done_all</mat-icon>
           </button>
           <button
-            class="header_btn check_btn"
+            class="header_btn check_btn todo_form_delete_btn"
             mat-icon-button
             aria-label="Concluir tarefa"
-            (click)="handleDeleteTodo(todo.id)"
+            (click)="handleDeleteTodo(todo)"
           >
             <mat-icon>delete_forevere</mat-icon>
           </button>
