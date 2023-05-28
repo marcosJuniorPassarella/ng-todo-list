@@ -104,3 +104,12 @@ body {
   width: 50px !important;
   margin-bottom: 1rem !important;
 }
+
+.warn_message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem !important;
+  font-size: 23px !important;
+  color: #19976a !important;
+}
