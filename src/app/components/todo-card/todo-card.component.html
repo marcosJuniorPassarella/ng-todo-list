@@ -1,7 +1,10 @@
-<mat-tab-group color="accent">
+<mat-tab-group color="accent" *ngIf="todosList().length > 0; else withoutTodos">
   <mat-tab label="Em andamento">
-    <mat-card class="todo_card" *ngFor="let todo of todosList()">
-      <div *ngIf="todo && todo?.done === false">
+    <div *ngFor="let todo of todosList()">
+      <mat-card
+        class="todo_card"
+        *ngIf="todo && todo?.done === false; else withoutTodos"
+      >
         <mat-card-header>
           <mat-card-title class="todo_card_title">
             {{ todo?.title }}
@@ -28,13 +31,16 @@
             <mat-icon>delete_forevere</mat-icon>
           </button>
         </mat-card-actions>
-      </div>
-    </mat-card>
+      </mat-card>
+    </div>
   </mat-tab>
 
   <mat-tab label="Concluídas">
-    <mat-card class="todo_card" *ngFor="let todo of todosList()">
-      <div *ngIf="todo && todo?.done === true">
+    <div *ngFor="let todo of todosList()">
+      <mat-card
+        class="todo_card"
+        *ngIf="todo && todo?.done === true; else withoutTodos"
+      >
         <mat-card-header>
           <mat-card-title class="todo_card_title">
             {{ todo?.title }}
@@ -61,11 +67,11 @@
             <mat-icon>delete_forevere</mat-icon>
           </button>
         </mat-card-actions>
-      </div>
-    </mat-card></mat-tab
-  >
+      </mat-card>
+    </div>
+  </mat-tab>
 </mat-tab-group>
 
 <ng-template #withoutTodos>
-  <h3>Não há tarefas a serem exibidas!</h3>
+  <h3 class="warn_message">Não há tarefas a serem exibidas!</h3>
 </ng-template>
