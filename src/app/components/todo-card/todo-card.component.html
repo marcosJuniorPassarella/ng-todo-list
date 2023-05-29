@@ -3,7 +3,7 @@
     <div *ngFor="let todo of todosList()">
       <mat-card
         class="todo_card"
-        *ngIf="todo && todo?.done === false; else withoutTodos"
+        *ngIf="todo?.done === false"
       >
         <mat-card-header>
           <mat-card-title class="todo_card_title">
@@ -39,7 +39,7 @@
     <div *ngFor="let todo of todosList()">
       <mat-card
         class="todo_card"
-        *ngIf="todo && todo?.done === true; else withoutTodos"
+        *ngIf="todo?.done === true"
       >
         <mat-card-header>
           <mat-card-title class="todo_card_title">

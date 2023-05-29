@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Todo } from '../models/todo.model';
+import { TodoKey } from '../models/todoKey.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +13,14 @@ export class TodoSignalsService {
       this.todosState.mutate((todos) => {
         if (todos !== null) {
           todos.push(new Todo(id, title, description, done));
-          console.log('TODO ADICIONADO', this.todosState());
         }
       });
+      this.saveTodosInTheLocalStorage();
     }
+  }
+
+  private saveTodosInTheLocalStorage(): void {
+    const todos = JSON.stringify(this.todosState());
+    localStorage.setItem(TodoKey.TODO_LIST, todos);
   }
 }
